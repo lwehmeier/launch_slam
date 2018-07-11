@@ -14,9 +14,11 @@
 
 
   <group name="odometry">
+<!--
     <include file="$(find gyro_odom)/launch/gyro_odom.launch" />
     <include file="$(find mouse_odom)/launch/mouse_odom.launch" />
     <include file="$(find combined_odom)/launch/combined_odom.launch" />
+-->
 <!--    <include file="$(find erl_bridge)/launch/erl_bridge.launch" /> -->
   </group>
   <group name='tf'>
@@ -27,7 +29,7 @@
     <node pkg="tf" type="static_transform_publisher" name="base_link_to_mouse_front"
       args="0 0.115 0.0 0.0 0.0 0.0 /base_footprint /mouse_front 100" />
     <node pkg="tf" type="static_transform_publisher" name="base_link_to_mouse_rear"
-      args="0 -0.115 0.0 0.0 0.0 0.0 /base_footprint /mouse_rear 100" />
+      args="0 -0.115 0.0 3.141598 0.0 0 /base_footprint /mouse_rear 100" />
   </group>
   <group name='lidar'>
     <include file="$(find ydlidar)/launch/lidar.launch" />
