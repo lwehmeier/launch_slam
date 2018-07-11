@@ -1,0 +1,40 @@
+<!-- Starts up everything needed to run the example listener/talker Python nodes. -->
+
+<launch>
+  <env name="ROS_MASTER_URI" value="http://rpi3:11311/"/>
+  <env name="ROS_HOSTNAME" value="rpi3"/>
+  <env name="ROS_IP" value="10.0.1.9"/>
+<!-- Setup environment -->
+        <machine name="arm"
+                 address="arm"
+                 user="ubuntu"
+		 timeout="30"
+		 env-loader="ROS_MASTER_URI=http://inspiron:11311/ /home/ubuntu/catkin_ws/devel/env.sh">
+        </machine>
+
+
+  <group name="odometry">
+    <include file="$(find gyro_odom)/launch/gyro_odom.launch" />
+    <include file="$(find mouse_odom)/launch/mouse_odom.launch" />
+    <include file="$(find combined_odom)/launch/combined_odom.launch" />
+<!--    <include file="$(find erl_bridge)/launch/erl_bridge.launch" /> -->
+  </group>
+  <group name='tf'>
+<!--    <include file="$(find tf_bot)/launch/tf_bot.launch" />
+-->
+<node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="0.1 0 0 0.0 0 0 /base_footprint /odom_frame_combined 100" />
+<node pkg="tf" type="static_transform_publisher" name="link2_broadcaster" args="0.0 0 0 0.0 0 0 /base_footprint /laser_frame 100" />
+<!--    <node pkg="tf" type="static_transform_publisher" name="base_link_to_odom"
+      args="0.2245 0.0 0.0 0.0 0.0  0.0 /base_footprint /mouse_odom 40" />
+-->
+  </group>
+  <group name='lidar'>
+    <include file="$(find ydlidar)/launch/lidar.launch" />
+<!--    <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser4"
+      args="0.2245 0.0 0.2 0.0 0.0  0.0 /base_footprint /laser_frame 40" />
+-->
+  </group>
+  <group name='slam'>
+    <include file="$(find hector_mapping)/launch/mapping_default.launch" />
+  </group>
+</launch>
