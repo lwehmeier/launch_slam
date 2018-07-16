@@ -20,14 +20,18 @@
 <!--    <include file="$(find erl_bridge)/launch/erl_bridge.launch" /> -->
   </group>
   <group name='tf'>
-<!--    <include file="$(find tf_bot)/launch/tf_bot.launch" />
+<!--    <include file="$(find slam_tf_buffer)/launch/slam_tf_buffer.launch" />
 -->
-<node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="0.0 0 0 0.0 0 0 /base_footprint /odom_frame_combined 100" />
-<node pkg="tf" type="static_transform_publisher" name="link2_broadcaster" args="0.0 0 0 0.0 0 0 /base_footprint /laser_frame 100" />
+<!--
+<node pkg="tf" type="static_transform_publisher" name="odom_base_broadcaster" args="0.0 0 0 0.0 0 0 /base_footprint /odom 100" />
+-->
+<!--<node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="0.0 0 0 0.0 0 0 /base_footprint /odom_frame_combined 100" />
+-->
+<node pkg="tf" type="static_transform_publisher" name="link2_broadcaster" args="0.0 0 0 3.141568 0 0 /base_footprint /laser_frame 100" />
     <node pkg="tf" type="static_transform_publisher" name="base_link_to_mouse_front"
-      args="0 0.115 0.0 0.0 0.0 0.0 /base_footprint /mouse_front 100" />
+      args="0.115 0 0.0 -0.036 0.0 0.0 /base_footprint /mouse_front 100" />
     <node pkg="tf" type="static_transform_publisher" name="base_link_to_mouse_rear"
-      args="0 -0.115 0.0 0.0 0.0 0.0 /base_footprint /mouse_rear 100" />
+      args="-0.115 0 0.0 3.197 0.0 0.0 /base_footprint /mouse_rear 100" />
   </group>
   <group name='lidar'>
     <include file="$(find ydlidar)/launch/lidar.launch" />
