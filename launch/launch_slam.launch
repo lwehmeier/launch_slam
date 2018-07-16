@@ -41,5 +41,6 @@
   </group>
   <group name='slam'>
     <include file="$(find hector_mapping)/launch/mapping_default.launch" />
+    <include file="$(find launch_slam)/launch/hector_trajectory.launch" />
   </group>
 </launch>
