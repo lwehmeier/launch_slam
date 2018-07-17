@@ -27,7 +27,7 @@
 -->
 <!--<node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="0.0 0 0 0.0 0 0 /base_footprint /odom_frame_combined 100" />
 -->
-<node pkg="tf" type="static_transform_publisher" name="link2_broadcaster" args="0.0 0 0 3.141568 0 0 /base_footprint /laser_frame 100" />
+<node pkg="tf" type="static_transform_publisher" name="link2_broadcaster" args="0.015 0.005 0 3.140568 0 0 /base_footprint /laser_frame 100" />
     <node pkg="tf" type="static_transform_publisher" name="base_link_to_mouse_front"
       args="0.115 0 0.0 -0.036 0.0 0.0 /base_footprint /mouse_front 100" />
     <node pkg="tf" type="static_transform_publisher" name="base_link_to_mouse_rear"
