@@ -13,11 +13,13 @@
         </machine>
 
 
+  <include file="$(find energy_monitor)/launch/energy_monitor.launch" />
   <group name="odometry">
     <include file="$(find gyro_odom)/launch/gyro_odom.launch" />
     <include file="$(find mouse_odom)/launch/mouse_odom.launch" />
     <include file="$(find combined_odom)/launch/combined_odom.launch" />
-<!--    <include file="$(find erl_bridge)/launch/erl_bridge.launch" /> -->
+    <include file="$(find erlang_bridge)/launch/erlang_bridge.launch" />
+    <include file="$(find odom_estimator)/launch/odom_estimator.launch" />
   </group>
   <group name='tf'>
 <!--    <include file="$(find slam_tf_buffer)/launch/slam_tf_buffer.launch" />
@@ -42,5 +44,6 @@
   <group name='slam'>
     <include file="$(find hector_mapping)/launch/mapping_default.launch" />
     <include file="$(find launch_slam)/launch/hector_trajectory.launch" />
+    <include file="$(find hector_covariance_calculator)/launch/covariance_calculator.launch" />
   </group>
 </launch>
