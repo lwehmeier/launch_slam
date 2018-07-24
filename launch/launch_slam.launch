@@ -46,4 +46,6 @@
     <include file="$(find launch_slam)/launch/hector_trajectory.launch" />
     <include file="$(find hector_covariance_calculator)/launch/covariance_calculator.launch" />
   </group>
+  <include file="$(find vl6180_sim)/launch/vl6180.launch" />
+<include file="$(find battery_warner)/launch/battery_warner.launch" />
 </launch>
