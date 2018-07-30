@@ -4,4 +4,5 @@
 <include file="$(find launch_slam)/launch/launch_slam.launch" />
 <include file="$(find base_controller)/launch/base_controller.launch" />
 <include file="$(find coordinate_mover)/launch/coordinate_mover.launch" />
+<include file="$(find local_pathfinder)/launch/local_pathfinder.launch" />
 </launch>
