@@ -49,7 +49,8 @@
     <include file="$(find hector_covariance_calculator)/launch/covariance_calculator.launch" />
   </group>
   <include file="$(find vl6180)/launch/vl6180.launch" />
-<<!-- use vl6180_sim package for emulated vl sensors using the local costmap, aka lidar generated environment info  -->
+<!-- use vl6180_sim package for emulated vl sensors using the local costmap, aka lidar generated environment info  -->
 <include file="$(find battery_warner)/launch/battery_warner.launch" />
 <include file="$(find ros_system_monitor)/launch/system_monitor.launch" />
+<include file="$(find probabilistic_collision_checker)/launch/probabilistic_collision_checker.launch" />
 </launch>
