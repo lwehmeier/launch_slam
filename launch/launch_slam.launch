@@ -53,4 +53,5 @@
 <include file="$(find battery_warner)/launch/battery_warner.launch" />
 <include file="$(find ros_system_monitor)/launch/system_monitor.launch" />
 <include file="$(find probabilistic_collision_checker)/launch/probabilistic_collision_checker.launch" />
+<include file="$(find estop_mgr)/launch/estop_mgr.launch" />
 </launch>
